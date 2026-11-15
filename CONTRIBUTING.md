@@ -37,11 +37,20 @@ To test a development TUI against your installed OpenCode V2 background service 
 bun run dev:live [directory]
 ```
 
-For web development, run the backend and app in separate terminals. Other interfaces have root scripts:
+For web development, run the backend and app in separate terminals:
 
 ```bash
 bun dev serve --port 4096
 bun run dev:web
+```
+
+Open the URL printed by Vite (normally `http://localhost:3000`). The app connects to `http://localhost:4096` by default. On the connection screen, choose **Use password** and enter the server address and password.
+
+The backend prints a generated `server password` on startup unless `OPENCODE_PASSWORD` or the legacy `OPENCODE_SERVER_PASSWORD` is set; in that case, use the configured value. A generated password changes when the backend restarts, so reconnect with the new password.
+
+Other interfaces have root scripts:
+
+```bash
 bun run dev:desktop
 bun run dev:site
 ```
